@@ -3,8 +3,7 @@ from pathlib import Path
 import pandas as pd
 
 
-class CheckFile:
-
+class TxtFile:
     def __init__(self, filename: str):
         if not isinstance(filename, str):
             raise ValueError
@@ -15,14 +14,6 @@ class CheckFile:
 
         if not os.path.exists(self.path):
             raise FileNotFoundError
-
-    def __str__(self):
-        return f"CheckFile('{self.filename}')"
-
-
-class TxtFile(CheckFile):
-    def __init__(self, filename):
-        super().__init__(filename)
 
     @property
     def reader(self):
@@ -43,7 +34,7 @@ class TxtFile(CheckFile):
         return f"TxtFile('{self.filename}')"
 
 
-class CsvFile(CheckFile):
+class CsvFile(TxtFile):
     def __init__(self, filename):
         super().__init__(filename)
 
@@ -65,7 +56,7 @@ class CsvFile(CheckFile):
         return f"CsvFile('{self.filename}')"
 
 
-class XlsFile(CheckFile):
+class XlsFile(TxtFile):
     def __init__(self, filename):
         super().__init__(filename)
 

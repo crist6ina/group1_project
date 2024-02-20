@@ -50,7 +50,7 @@ class TxtFileConverter(TxtFileReader):
         pass
 
 
-class CsvFile(CheckFile):
+class CsvFileReader(CheckFile):
     def __init__(self, filename):
         super().__init__(filename)
 
@@ -60,7 +60,7 @@ class CsvFile(CheckFile):
         return reader
 
 
-class CsvFileConverter(CsvFile):
+class CsvFileConverter(CsvFileReader):
     def __init__(self, filename):
         super().__init__(filename)
 
@@ -74,7 +74,7 @@ class CsvFileConverter(CsvFile):
         pass
 
 
-class XlsFile(CheckFile):
+class XlsFileReader(CheckFile):
     def __init__(self, filename):
         super().__init__(filename)
 
@@ -84,7 +84,7 @@ class XlsFile(CheckFile):
         return reader
 
 
-class XlsFileConverter(XlsFile):
+class XlsFileConverter(XlsFileReader):
     def __init__(self, filename):
         super().__init__(filename)
 

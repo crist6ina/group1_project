@@ -1,6 +1,5 @@
 import os.path
 from pathlib import Path
-import pandas as pd
 from abc import ABC, abstractmethod
 
 
@@ -29,11 +28,8 @@ class TxtFileReader(CheckFile):
     def __init__(self, filename):
         super().__init__(filename)
 
-    @property
     def reader(self):
-        with open(self.path, 'r') as txt_file:
-            reader = txt_file.read()
-            return reader
+        pass
 
 
 class TxtFileConverter(TxtFileReader):
@@ -54,10 +50,8 @@ class CsvFileReader(CheckFile):
     def __init__(self, filename):
         super().__init__(filename)
 
-    @property
     def reader(self):
-        reader = pd.read_csv(self.path)
-        return reader
+        pass
 
 
 class CsvFileConverter(CsvFileReader):
@@ -78,10 +72,8 @@ class XlsFileReader(CheckFile):
     def __init__(self, filename):
         super().__init__(filename)
 
-    @property
     def reader(self):
-        reader = pd.read_excel(self.path)
-        return reader
+        pass
 
 
 class XlsFileConverter(XlsFileReader):
